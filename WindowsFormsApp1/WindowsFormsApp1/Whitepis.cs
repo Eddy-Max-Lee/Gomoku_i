@@ -12,5 +12,9 @@ namespace WindowsFormsApp1
         {
             this.Image = Properties.Resources.white;
         }
+        public override PisType_Enum GetPisType() //改寫
+        {
+            return PisType_Enum.WHITE;
+        }
     }
 }

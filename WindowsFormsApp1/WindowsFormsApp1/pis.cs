@@ -22,5 +22,8 @@ namespace WindowsFormsApp1
 
 
 
+        public abstract PisType_Enum GetPisType(); //不實作 留給繼承者
+        
+
     }
 }

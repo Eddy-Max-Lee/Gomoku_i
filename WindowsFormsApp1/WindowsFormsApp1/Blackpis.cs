@@ -12,6 +12,10 @@ namespace WindowsFormsApp1
         public Blackpis(int x, int y) : base(x,y)
         {
           this.Image = Properties.Resources.black ;
-         }   
+         }
+        public override PisType_Enum GetPisType() //改寫
+        {
+            return PisType_Enum.BLACK;
+        }
 }
 }

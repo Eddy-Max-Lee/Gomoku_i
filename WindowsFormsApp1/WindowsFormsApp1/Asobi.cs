@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
         private static PisType_Enum currentPlayer_Enum = PisType_Enum.BLACK;
 
         private PisType_Enum winner = PisType_Enum.NONE;
-        public PisType_Enum Winner { get { return winner; } } //把winner以唯獨的方式傳給外面的人
+        public PisType_Enum Winner { get { return winner; } } //把winner以唯獨的方式傳給外面的人看
 
         public  bool CanBePlaced(int x, int y)  //Method Board 的  CanBePlaced
         {
@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
             }
             return null;
         }
-        private void CheckWinner()
+        public void CheckWinner()
         {
             int centerX = board.LastPlacedNode.X;
             int centerY = board.LastPlacedNode.Y;

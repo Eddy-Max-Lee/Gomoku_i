@@ -41,8 +41,11 @@ namespace WindowsFormsApp1
             {
                 this.Controls.Add(piece);
 
+
+
                 //每次增加一棋，就檢查有沒有人贏
-                if(game.Winner == PisType_Enum.BLACK)
+                game.CheckWinner();
+                if (game.Winner == PisType_Enum.BLACK)
                 {
                     MessageBox.Show("黑色大成功");
                 } else if(game.Winner == PisType_Enum.WHITE)

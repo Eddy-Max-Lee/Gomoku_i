@@ -27,8 +27,11 @@ namespace WindowsFormsApp1
 
             if (piece != null)
             {
+                //檢查是否現在下棋的人獲勝
+               CheckWinner();
 
-                if (currentPlayer_Enum == PisType_Enum.BLACK)  //交換使用者
+               //交換使用者
+                if (currentPlayer_Enum == PisType_Enum.BLACK) 
                     currentPlayer_Enum = PisType_Enum.WHITE;
                 else
                     currentPlayer_Enum = PisType_Enum.BLACK;
@@ -42,12 +45,19 @@ namespace WindowsFormsApp1
             int centerX = board.LastPlacedNode.X;
             int centerY = board.LastPlacedNode.Y;
 
+            //檢查8個不同方向
+            for(int xDir = -1; xDir <=1;xDir++){
+                for(int yDir = -1; yDir <=1;yDir++){
+                    //排除中間的情況
+                    if(xDir == 0 && yDir==0)
+                        continue;//跳過底下，繼續迴圈
+
             //看最後一子附近有幾棵相同相連的棋子
             int count = 1;
             while(count<5)
             {
-                int targetX = centerX + count;
-                int targetY = centerY ;
+                int targetX = centerX + count * xDir;
+                int targetY = centerY + count * yDir ; 
 
                 //檢查顏色是否相同
                 if (targetX<0 || targetX>=board.NODE_COUNT ||
@@ -61,8 +71,8 @@ namespace WindowsFormsApp1
             //若看到五子連珠
             if (count == 5)
                 winner = currentPlayer_Enum;
-
-
+                }
+            }
         }
 
     }

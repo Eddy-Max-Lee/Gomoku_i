@@ -35,16 +35,17 @@ namespace WindowsFormsApp1
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
+          //  game.CheckWinner();        
             pis piece = game.PlaceAPis(e.X, e.Y);
             
             if (piece != null)
             {
                 this.Controls.Add(piece);
-
+              //game.CheckWinner();
 
 
                 //每次增加一棋，就檢查有沒有人贏
-                game.CheckWinner();
+                //game.CheckWinner();
                 if (game.Winner == PisType_Enum.BLACK)
                 {
                     MessageBox.Show("黑色大成功");

@@ -1,0 +1,19 @@
+/*重啟遊戲注意事項
+1.pieces[nodeID.X, nodeID.Y] 要回到null
+
+2.新增class  newspace:pis  
+ class Newspace : pis
+    {
+        public Newspace(int x, int y) : base(x, y)
+        {
+            this.Image = Properties.Resources.transparet; or no image
+        }
+        public override PisType_Enum GetPisType() //改寫
+        {
+            return PisType_Enum.NONE; OR  return null
+        }
+    }
+    
+ 3. 新增restart button
+
+*/

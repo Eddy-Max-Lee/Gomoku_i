@@ -49,9 +49,15 @@ namespace WindowsFormsApp1
                 if (game.Winner == PisType_Enum.BLACK)
                 {
                     MessageBox.Show("黑色大成功");
+                  Controls.Clear();
+                    game.RestartGame();
+                    
+
                 } else if(game.Winner == PisType_Enum.WHITE)
                 {
-                    MessageBox.Show("白色大成功");
+                   MessageBox.Show("白色大成功");
+                    Controls.Clear();
+                      game.RestartGame();
                 }
                 
             }

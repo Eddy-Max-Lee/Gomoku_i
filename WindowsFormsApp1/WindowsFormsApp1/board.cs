@@ -21,6 +21,10 @@ namespace WindowsFormsApp1
         private Point lastPlacedNode = NO_MATCH_NODE;
         public Point LastPlacedNode {            get { return lastPlacedNode; }        } //LastPlacedNode IS READONLY
 
+
+ 
+
+
         public PisType_Enum GetPisType(int nodeIdX, int nodeIdY ) //tell me what color is on the node
         {
             if (pieces[nodeIdX, nodeIdY] == null)
@@ -71,9 +75,9 @@ namespace WindowsFormsApp1
                 return null;
             //根據Type,產生棋子
             Point formPos = convertToFormPosition(nodeID);
-            if (type == PisType_Enum.BLACK)
-                pieces[nodeID.X, nodeID.Y]=new Blackpis(formPos.X, formPos.Y);
-            else if (type == PisType_Enum.WHITE)
+            if (type == PisType_Enum.BLACK){
+                pieces[nodeID.X, nodeID.Y]=new  Blackpis(formPos.X, formPos.Y);
+               }else if (type == PisType_Enum.WHITE)
                 pieces[nodeID.X, nodeID.Y] = new Whitepis(formPos.X, formPos.Y);
 
             //紀錄最後下子的位置
@@ -81,12 +85,13 @@ namespace WindowsFormsApp1
 
             return pieces[nodeID.X,nodeID.Y];
 
+
         }
 
         private Point FindTheClosetNode(int x, int y)  
         {
             int nodeIDX = FindTheClosetNode(x);
-            if (nodeIDX == -1  || nodeIDX >= NODE_COUNT)
+            if (nodeIDX == -1  || nodeIDX >= NODE_COUNT)  //為什麼不直接  if (x == -1  || x >= NODE_COUNT)
                 return NO_MATCH_NODE; //橫上找不到
 
             int nodeIDY = FindTheClosetNode(y);
@@ -118,6 +123,33 @@ namespace WindowsFormsApp1
                 return -1;
 
         }
+
+       
+
+
+
+
+PisType_Enum NodeToClean=new PisType_Enum();
+   
+
+  public void CleanBoard()
+   {   
+        Point clean = new Point(1,1);
+            for( clean.X = 0; clean.X<=8; clean.X++){
+                for( clean.Y =0; clean.Y<=8; clean.Y++){
+                     if (NodeToClean!=PisType_Enum.NONE)
+                        {
+                        pieces[clean.X,clean.Y]=null;
+                        }else
+                    continue;
+                    
+                 }
+              }
+
+            
+ }
+
+
 
     }
 }

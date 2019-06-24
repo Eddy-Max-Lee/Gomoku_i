@@ -8,7 +8,6 @@ namespace WindowsFormsApp1
 {
     enum PisType_Enum
     {
-        BLACK, WHITE,NONE
-
+        BLACK, WHITE, NONE
     }
 }

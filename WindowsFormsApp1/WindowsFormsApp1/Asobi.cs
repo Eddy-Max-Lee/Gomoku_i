@@ -45,11 +45,19 @@ namespace WindowsFormsApp1
             int centerX = board.LastPlacedNode.X;
             int centerY = board.LastPlacedNode.Y;
 
-            //檢查8個不同方向
+            /*檢查8個不同方向
+               Dir=  -1 -1  往左下找
+               Dir=  -1 0  往左找
+               Dir=  -1 1  往左上找
+               Dir=   1 -1  往右下找
+               Dir=   1  0  往右找
+               Dir=  1  1  往右上找
+               Dir=   0 1  往上找
+               Dir=   0 -1  往下找   */
             for(int xDir = -1; xDir <=1;xDir++){
                 for(int yDir = -1; yDir <=1;yDir++){
                     //排除中間的情況
-                    if(xDir == 0 && yDir==0)
+                    if(xDir == 0 && yDir==0)//同時是0
                         continue;//跳過底下，繼續迴圈
 
             //看最後一子附近有幾棵相同相連的棋子
@@ -74,6 +82,20 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+
+        public void RestartGame()
+            {
+            winner = PisType_Enum.NONE;
+              board.CleanBoard();
+             currentPlayer_Enum = PisType_Enum.BLACK;
+
+
+
+
+
+           }
+
 
     }
 }
